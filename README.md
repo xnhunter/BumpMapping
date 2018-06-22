@@ -39,4 +39,4 @@ It's easy. It contains three small steps.
 Screenshots
 -----------
 ![Bump Mapping](http://images.vfl.ru/ii/1529655624/6a3d5a25/22206808.jpg)
-!(http://images.vfl.ru/ii/1529655625/7b308706/22206809.jpg)
+![Bump Mapping](http://images.vfl.ru/ii/1529655625/7b308706/22206809.jpg)
