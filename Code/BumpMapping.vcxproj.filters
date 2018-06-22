@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="BM">
+      <UniqueIdentifier>{2aa13332-f662-468c-b47f-4a2bd17f50d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Precompiled">
+      <UniqueIdentifier>{16e1151f-09bc-46f3-9268-288fc1d42205}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DDSTextureLoader">
+      <UniqueIdentifier>{da43f2cf-3f1a-466d-8c2b-2340f7f22c99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BM\AppInfo">
+      <UniqueIdentifier>{5eaeb4fc-020e-4ea2-967f-2c011dee027d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{97834b06-62aa-4d09-b337-a916216a6438}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DDSTextureLoader\DDSTextureLoader.cpp">
+      <Filter>DDSTextureLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\D3D11Renderer.cpp">
+      <Filter>BM</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Terrain.cpp">
+      <Filter>BM</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\TerrainShader.cpp">
+      <Filter>BM</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Window.cpp">
+      <Filter>BM</Filter>
+    </ClCompile>
+    <ClCompile Include="Precompiled\StdAfx.cpp">
+      <Filter>Precompiled</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Main.cpp" />
+    <ClCompile Include="Source\DirectInput8.cpp">
+      <Filter>BM</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FPSCamera.cpp">
+      <Filter>BM</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DDSTextureLoader\DDSTextureLoader.h">
+      <Filter>DDSTextureLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\D3D11Renderer.h">
+      <Filter>BM</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Resource.h">
+      <Filter>BM</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Terrain.h">
+      <Filter>BM</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\TerrainShader.h">
+      <Filter>BM</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Window.h">
+      <Filter>BM</Filter>
+    </ClInclude>
+    <ClInclude Include="Precompiled\StdAfx.h">
+      <Filter>Precompiled</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\AppInfo.h">
+      <Filter>BM\AppInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\DirectInput8.h">
+      <Filter>BM</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\FPSCamera.h">
+      <Filter>BM</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resource\small.ico">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="Resource\BumpMapping.ico">
+      <Filter>Resources</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resource\BumpMapping.rc">
+      <Filter>Resources</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
