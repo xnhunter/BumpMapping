@@ -27,35 +27,35 @@ int __stdcall WinMain(HINSTANCE, HINSTANCE, char*, int)
                                 resource_directory_name + terrain_name + L"_vs"s + hlsl_file_extension,
                                 resource_directory_name + terrain_name + L"_ps"s + hlsl_file_extension};
 
-    auto fullscreen = true;
-	auto vsync = false;
+    constexpr auto ENABLE_FULLSCREEN = true;
+    constexpr auto ENABLE_VSYNC = false;
     
-	auto screen_width = 1920;
-	auto screen_height = 1080;
+    constexpr auto SCREEN_WIDTH = 1920;
+    constexpr auto SCREEN_HEIGHT = 1080;
 
-    auto window = std::make_shared<bm::Window>(screen_width, screen_height, fullscreen);
+    auto window = std::make_shared<bm::Window>(SCREEN_WIDTH, SCREEN_HEIGHT, ENABLE_FULLSCREEN);
     window->registerClass();
     window->create();
 
-    auto d3d11_renderer = std::make_shared<bm::D3D11Renderer>(screen_width, screen_height, fullscreen, window->getHandle(), vsync);
+    auto d3d11_renderer = std::make_shared<bm::D3D11Renderer>(SCREEN_WIDTH, SCREEN_HEIGHT, ENABLE_FULLSCREEN, window->getHandle(), ENABLE_VSYNC);
 
     auto terrain = std::make_shared<bm::Terrain>(d3d11_renderer->getDevice(), resources[0].c_str(), resources[1].c_str(), resources[2].c_str());
     auto terrain_shader = std::make_shared<bm::TerrainShader>(d3d11_renderer->getDevice(), resources[3].c_str(), resources[4].c_str());
    
-    auto fps_camera = std::make_shared<bm::FPSCamera>(static_cast<float>(screen_width),  static_cast<float>(screen_height));
+    auto fps_camera = std::make_shared<bm::FPSCamera>(static_cast<float>(SCREEN_WIDTH),  static_cast<float>(SCREEN_HEIGHT));
 	fps_camera->setPosition(500.f, 75.f, 400.f);
     fps_camera->setRotation(20.f, 30.f, 0.f); // in degree.
 
     auto direct_input_8 = std::make_shared<bm::DirectInput8>(window->getHandle());
 
-    float clear_color[] = {0.84f, 0.84f, 1.f, 1.f};
+    constexpr float CLEAR_COLOR[] = {0.84f, 0.84f, 1.f, 1.f};
 
     while(window->update())
     {
         direct_input_8->update(fps_camera->getMoveLeftRight(), fps_camera->getMoveBackForward(), fps_camera->getYaw(), fps_camera->getPitch());
         fps_camera->update();
 
-        d3d11_renderer->clearScreen(clear_color);
+        d3d11_renderer->clearScreen(CLEAR_COLOR);
 
         terrain->render(d3d11_renderer->getDeviceContext());
 

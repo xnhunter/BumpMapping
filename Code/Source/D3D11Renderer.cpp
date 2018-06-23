@@ -321,7 +321,7 @@ namespace bm
             device->Release();
     }
 
-    void D3D11Renderer::clearScreen(float color[4])
+    void D3D11Renderer::clearScreen(const float color[4])
     {
         device_context->ClearRenderTargetView(render_target_view, color);
         device_context->ClearDepthStencilView(depth_stencil_view, D3D11_CLEAR_DEPTH, 1.0f, 0U);
