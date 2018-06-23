@@ -21,7 +21,7 @@ namespace bm
         D3D11Renderer& operator=(D3D11Renderer&&) = delete;
 
     public:
-        void clearScreen(float color[4]);
+        void clearScreen(const float color[4]);
         void swapBuffers();
 
     public:
