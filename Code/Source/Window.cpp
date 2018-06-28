@@ -43,7 +43,7 @@ namespace bm
 
     void Window::create()
     {
-        handle = CreateWindowExA(fullscreen == true ? 0 : 0,
+        handle = CreateWindowExA(fullscreen == true ? 0 : WS_EX_OVERLAPPEDWINDOW,
                                  class_name.c_str(),
                                  name.c_str(),
                                  fullscreen ? WS_POPUPWINDOW : WS_OVERLAPPEDWINDOW,
@@ -67,7 +67,7 @@ namespace bm
 
     bool Window::update()
     {
-        static MSG msg{ 0 };
+        static MSG msg{};
 
         if(PeekMessageA(&msg, nullptr, 0, 0, PM_REMOVE))
         {
@@ -83,8 +83,8 @@ namespace bm
 
     LRESULT __stdcall Window::process(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     {
-        PAINTSTRUCT ps{ 0 };
-        HDC hdc{ 0 };
+        PAINTSTRUCT ps{};
+        HDC hdc{};
 
         switch(message)
         {
