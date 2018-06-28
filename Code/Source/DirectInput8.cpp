@@ -52,7 +52,7 @@ namespace bm
         DIMouse->GetDeviceState(sizeof(decltype(mouseCurrState)), &mouseCurrState);
         DIKeyboard->GetDeviceState(sizeof(decltype(keyboardState)), reinterpret_cast<void**>(&keyboardState));
 
-        auto move_speed = 1.5f;
+        const auto move_speed = 1.5f;
 
         if(keyboardState[DIK_A] & 0x80)
             moveLeftRight -= move_speed;
