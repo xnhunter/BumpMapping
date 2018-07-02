@@ -8,7 +8,7 @@ namespace bm
 {
     FPSCamera::FPSCamera(const float& width, const float& height)
     {
-		position = DirectX::XMVectorSet(0.0f, 0.0f, 1.0f, 0.0f);
+	position = DirectX::XMVectorSet(0.0f, 0.0f, 1.0f, 0.0f);
         target = DirectX::XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f);
         up = DirectX::XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f);
 
@@ -30,8 +30,8 @@ namespace bm
         position += left_right * right;
         position += back_forward * forward;
 
-		left_right = 0.0f;
-		back_forward = 0.0f;
+	left_right = 0.0f;
+	back_forward = 0.0f;
 
         target = position + target;
 
@@ -40,12 +40,12 @@ namespace bm
 
 	void FPSCamera::setPosition(const float& x, const float& y, const float& z)
 	{
-		position = DirectX::XMVectorSet(x, y, z, 0);
+            position = DirectX::XMVectorSet(x, y, z, 0);
 	}
 
     void FPSCamera::setRotation(const float& x, const float& y, const float& z)
     {
-        // 0.0174532925 is a degree koeficient.
+        // 0.0174532925 is a degree coefficient.
         pitch = x * 0.0174532925f;
         yaw = y * 0.0174532925f;
         roll = z * 0.0174532925f;
