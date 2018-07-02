@@ -66,7 +66,7 @@ namespace bm
 	{
 		auto result = setShaderParameters(device_context, world, view, projection, diffuse_color, light_direction, diffuse_texture, bump_map_texture);
 		if(!result)
-			return false;
+		    return false;
 
 		renderShader(device_context, index_count);
 
