@@ -566,7 +566,6 @@ namespace bm
 		if(FAILED(x))
 			return false;
 
-
 #ifdef DEPRECATED_CODE
 		x = DirectX::CreateWICTextureFromFile(device, device_con, bump_map_file_name, nullptr, &bump_texture);
 		x = D3DX11CreateShaderResourceViewFromFileA(device, ss.c_str(), nullptr, nullptr, &bump_texture, nullptr);
