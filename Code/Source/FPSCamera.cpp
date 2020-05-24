@@ -8,7 +8,7 @@ namespace bm
 {
     FPSCamera::FPSCamera(const float& width, const float& height)
     {
-	position = DirectX::XMVectorSet(0.0f, 0.0f, 1.0f, 0.0f);
+        position = DirectX::XMVectorSet(0.0f, 0.0f, 1.0f, 0.0f);
         target = DirectX::XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f);
         up = DirectX::XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f);
 
