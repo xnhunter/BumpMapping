@@ -30,8 +30,8 @@ namespace bm
         position += left_right * right;
         position += back_forward * forward;
 
-	left_right = 0.0f;
-	back_forward = 0.0f;
+        left_right = 0.0f;
+        back_forward = 0.0f;
 
         target = position + target;
 
