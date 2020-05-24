@@ -43,7 +43,7 @@ int __stdcall WinMain(HINSTANCE, HINSTANCE, char*, int)
     auto terrain_shader = std::make_shared<bm::TerrainShader>(d3d11_renderer->getDevice(), resources[3].c_str(), resources[4].c_str());
    
     auto fps_camera = std::make_shared<bm::FPSCamera>(static_cast<float>(SCREEN_WIDTH),  static_cast<float>(SCREEN_HEIGHT));
-	fps_camera->setPosition(500.f, 75.f, 400.f);
+    fps_camera->setPosition(500.f, 75.f, 400.f);
     fps_camera->setRotation(20.f, 30.f, 0.f); // in degree.
 
     auto direct_input_8 = std::make_shared<bm::DirectInput8>(window->getHandle());
