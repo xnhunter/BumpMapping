@@ -38,10 +38,10 @@ namespace bm
         view = DirectX::XMMatrixLookAtLH(position, target, up);
     }
 
-	void FPSCamera::setPosition(const float& x, const float& y, const float& z)
-	{
-            position = DirectX::XMVectorSet(x, y, z, 0);
-	}
+    void FPSCamera::setPosition(const float& x, const float& y, const float& z)
+	  {
+	      position = DirectX::XMVectorSet(x, y, z, 0);
+	  }
 
     void FPSCamera::setRotation(const float& x, const float& y, const float& z)
     {
