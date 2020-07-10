@@ -30,7 +30,11 @@
 
 namespace bm
 {
+#if __cplusplus < 199711
     namespace fs = std::experimental::filesystem;
+#else
+    namespace fs = std::filesystem;
+#endif
 
     using namespace std::string_literals;
 
