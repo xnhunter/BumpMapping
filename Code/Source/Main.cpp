@@ -1,4 +1,4 @@
-﻿// Copyright ⓒ 2018 Valentyn Bondarenko. All rights reserved.
+﻿// Copyright ⓒ 2018, 2020 Valentyn Bondarenko. All rights reserved.
 
 #include <StdAfx.h>
 
@@ -15,7 +15,7 @@ using namespace bm;
 
 int __stdcall WinMain(HINSTANCE, HINSTANCE, char*, int)
 {
-    auto resource_directory_name = L"..\\..\\..\\Resource\\"s;
+    auto resource_directory_name = L"..\\..\\..\\Resource\\"s; // might be worse
     auto terrain_name = L"terrain"s;
 
     auto dds_file_extension = L".dds"s;
@@ -29,9 +29,19 @@ int __stdcall WinMain(HINSTANCE, HINSTANCE, char*, int)
 
     constexpr auto ENABLE_FULLSCREEN = true;
     constexpr auto ENABLE_VSYNC = false;
+    constexpr auto ENABLE_RESOLUTION_DETECTION = true;
     
-    constexpr auto SCREEN_WIDTH = 1920;
-    constexpr auto SCREEN_HEIGHT = 1080;
+    auto SCREEN_WIDTH = 1024;
+    auto SCREEN_HEIGHT = 768;
+
+    if (ENABLE_RESOLUTION_DETECTION)
+    {
+        RECT rc;
+        GetWindowRect(::GetDesktopWindow(), &rc);
+
+        SCREEN_WIDTH = rc.right;
+        SCREEN_HEIGHT = rc.bottom;
+    }
 
     auto window = std::make_shared<bm::Window>(SCREEN_WIDTH, SCREEN_HEIGHT, ENABLE_FULLSCREEN);
     window->registerClass();
@@ -59,11 +69,6 @@ int __stdcall WinMain(HINSTANCE, HINSTANCE, char*, int)
 
         terrain->render(d3d11_renderer->getDeviceContext());
 
-#pragma warning(push)
-#pragma warning(disable : 4239)
-        // FIXME: C4239 with Matrix getWorld(), Matrix getView() and Matrix getProjection().
-        //        The arguments of the following function do not chash the app, but when
-        //        we change them they do.
         terrain_shader->render(d3d11_renderer->getDeviceContext(),
                                terrain->getIndexCount(),
                                fps_camera->getWorld(),
@@ -73,7 +78,6 @@ int __stdcall WinMain(HINSTANCE, HINSTANCE, char*, int)
                                {-0.0f, -1.0f, 0.0f},
                                terrain->getColorTexture(),
                                terrain->getNormalMapTexture());
-#pragma warning(pop)
 
         d3d11_renderer->swapBuffers();
     }

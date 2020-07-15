@@ -1,4 +1,4 @@
-﻿// Copyright ⓒ 2018 Valentyn Bondarenko. All rights reserved.
+﻿// Copyright ⓒ 2018, 2020 Valentyn Bondarenko. All rights reserved.
 
 #pragma once
 
@@ -39,9 +39,9 @@ namespace bm
 	public:
         bool render(ID3D11DeviceContext* device_context,
                     int index_count,
-                    Matrix& world,
-                    Matrix& view,
-                    Matrix& projection,
+                    Matrix&& world,
+                    Matrix&& view,
+                    Matrix&& projection,
                     Vector4D diffuse_color,
                     Vector3D light_direction,
                     ID3D11ShaderResourceView* diffuse_texture,

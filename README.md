@@ -1,24 +1,26 @@
 What is BumpMapping?
 ====================
-BumpMapping is a one of the 1.000.000+ demo scenes that shows up a technology of Bump (Normal) Mapping with Direct3D 11. Well documented and with minimum dependencies. 
+BumpMapping is a demo scene that shows up a technology of Bump (Normal) Mapping with Direct3D 11. Well documented and with minimum dependencies.
+
+Press Shift+ W/S/A/D to speed up. And change essential settings in Main.cpp.
 
 Overview
 --------
-- **Version**: 1.0.0
+- **Version**: 1.1.0
 - **License**: [MIT](https://github.com/weelhelmer/BumpMapping/master/LICENSE)
 - **Status**: Alpha
 
-Supported Platforms
+Platforms
 -------------------
 - **Windows** 7
 - **Windows** 8/8.1
 - **Windows** 10
 
-Supported Compiler
+Compiler
 ------------------
 - **Visual Studio 2015**
 
-Used Technologies
+Technologies
 -----------------
 - **Direct3D 11**
 - **DirectInput 8**
@@ -26,14 +28,14 @@ Used Technologies
 Dependencies
 ------------
 - [**DirectX SDK (June 2010)**](https://www.microsoft.com/en-us/download/details.aspx?id=6812)
-- **DDSTextureLoader** (is already in the project and picked up)
+- **DDSTextureLoader** (is already in the project and linked)
 
 Compiling
 ---------
 It's easy. It contains three small steps.
 - Open BumpMapping.sln
 - Press Ctr+F5
-- Everything's waiting for you. Enjoy yourself
+- Everything's ready. Enjoy yourself
 
 Preview
 -----------

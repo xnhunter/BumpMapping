@@ -1,4 +1,4 @@
-// Copyright ⓒ 2018 Valentyn Bondarenko. All rights reserved.
+// Copyright ⓒ 2018, 2020 Valentyn Bondarenko. All rights reserved.
 
 #include <StdAfx.h>
 
@@ -56,9 +56,9 @@ namespace bm
 
     bool TerrainShader::render(ID3D11DeviceContext* device_context,
                                int index_count,
-                               Matrix& world,
-                               Matrix& view,
-                               Matrix& projection,
+                               Matrix&& world,
+                               Matrix&& view,
+                               Matrix&& projection,
                                Vector4D diffuse_color,
                                Vector3D light_direction,
                                ID3D11ShaderResourceView* diffuse_texture,
@@ -115,7 +115,7 @@ namespace bm
             if (error_message)
                 outputShaderErrorMessage(error_message, vs_file_name);
 
-            MessageBoxW(nullptr, vs_file_name, L"Can't compile a shader.", MB_OK);
+            MessageBoxW(nullptr, vs_file_name, L"Can't compile a shader.", MB_ICONERROR);
 
             return false;
         }
@@ -152,7 +152,7 @@ namespace bm
             if (error_message)
                 outputShaderErrorMessage(error_message, ps_file_name);
 
-            MessageBoxW(nullptr, ps_file_name, L"Can't compile a shader.", MB_OK);
+            MessageBoxW(nullptr, ps_file_name, L"Can't compile a shader.", MB_ICONERROR);
 
             return false;
         }
@@ -223,8 +223,8 @@ namespace bm
         sampler_desc.AddressV = D3D11_TEXTURE_ADDRESS_WRAP;
         sampler_desc.AddressW = D3D11_TEXTURE_ADDRESS_WRAP;
         sampler_desc.MipLODBias = 0.0f;
-        sampler_desc.MaxAnisotropy = 1U;
-        sampler_desc.ComparisonFunc = D3D11_COMPARISON_NEVER;
+        sampler_desc.MaxAnisotropy = 16U;
+        sampler_desc.ComparisonFunc = D3D11_COMPARISON_ALWAYS;
         sampler_desc.BorderColor[0] = 0.f;
         sampler_desc.BorderColor[1] = 0.f;
         sampler_desc.BorderColor[2] = 0.f;
@@ -310,11 +310,11 @@ namespace bm
         if (FAILED(result))
             return false;
 
-        auto dataPtr2 = reinterpret_cast<LightBufferType*>(mapped_subresource.pData);
+        auto shader_configs = reinterpret_cast<LightBufferType*>(mapped_subresource.pData);
 
-        dataPtr2->diffuse_color = diffuse_color;
-        dataPtr2->light_direction = light_direction;
-        dataPtr2->padding = 0.0f;
+        shader_configs->diffuse_color = diffuse_color;
+        shader_configs->light_direction = light_direction;
+        shader_configs->padding = 0.0f;
         device_context->Unmap(light_buffer, 0U);
 
         buffer_number = 0U;

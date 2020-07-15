@@ -30,3 +30,8 @@
 *.exe
 *.out
 *.app
+/Temp/x64
+/BumpMapping.VC.db
+/BumpMapping.VC.VC.opendb
+/ipch/BUMPMAPPING-2ff2f613
+/Bin/x64/Debug

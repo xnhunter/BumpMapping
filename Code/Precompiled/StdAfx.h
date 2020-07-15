@@ -6,10 +6,6 @@
 #   error Only Win32 is supported.
 #endif
 
-#if __cplusplus < 199711
-#   error Only VS2015 is supported.
-#endif
-
 #include <fstream>
 #include <vector>
 #include <memory>
@@ -30,10 +26,12 @@
 
 namespace bm
 {
-#if __cplusplus < 199711
+#if _MSC_VER  > 1900
+    namespace fs = std::filesystem;
+#elif _MSC_VER  == 1900
     namespace fs = std::experimental::filesystem;
 #else
-    namespace fs = std::filesystem;
+#   error Your compiler does not support C++17 FileSystem.
 #endif
 
     using namespace std::string_literals;
